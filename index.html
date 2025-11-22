@@ -1,250 +1,360 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Bilal Ben Youssef" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="Bilal Ben Youssef" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather App</title>
-  <link rel="stylesheet" href="./src/css/style.css">
+    <!-- DM Sans & Bricolage Grotesque Embed code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,700;1,9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- DM Sans & Bricolage Grotesque Embed code -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,700;1,9..40,700&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-
-
-  <header class="container">
-    <div class="header__logo">
-      <img src="/src/assets/images/logo.svg" alt="Logo">
-    </div>
-
-    <div class="header__units">
-      <button type="button" class="units-btn">
-        <img class="units-btn__icon" src="/src/assets/icons/icon-units.svg" alt="" aria-hidden="true">
-        <span class="units-btn__text">Units</span>
-        <img class="units-btn__icon-checvron" src="/src/assets/icons/icon-dropdown.svg" alt="">
-      </button>
-    </div>
-  </header>
-
-  <main class="container">
-    <h1>How's the sky looking today?</h1>
-
-    <form>
-      <div class="search-form__field">
-        <img src="/src/assets/icons/icon-search.svg" alt="" aria-hidden="true">
-        <input class="search-form__input" type="text" placeholder="Search for a place...">
+  <body>
+    <header class="container">
+      <div class="header__logo">
+        <img src="/src/assets/images/logo.svg" alt="Logo" />
       </div>
 
-      <div class="search-form__action">
-        <button class="search-form__btn" type="submit">Search</button>
+      <div class="header__units">
+        <button type="button" class="units-btn">
+          <img
+            class="units-btn__icon"
+            src="/src/assets/icons/icon-units.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <span class="units-btn__text">Units</span>
+          <img
+            class="units-btn__icon-checvron"
+            src="/src/assets/icons/icon-dropdown.svg"
+            alt=""
+          />
+        </button>
       </div>
-    </form>
+    </header>
 
+    <main class="container">
+      <h1>How's the sky looking today?</h1>
 
-    <section class="weather">
+      <form action="#">
+        <div class="search-form__field">
+          <label for="search_input" class="sr-only">Search for a place</label>
+          <img
+            src="/src/assets/icons/icon-search.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <input
+            id="search_input"
+            class="search-form__input"
+            type="text"
+            placeholder="Search for a place..."
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="search-dropdown"
+            aria-activedescendant=""
+          />
 
-      <!-- CURRENT WEATHER -->
-      <div class="weather__current">
-        <div class="weather__location">
-          <p class="weather__city">Berlin, Germany</p>
-          <time class="weather__date" datetime="">Tuesday, Aug 5, 2025</time>
+          <!-- Dropdown Menu -->
+          <ul
+            class="search-form__dropdown-list"
+            id="search-dropdown"
+            class="search-form__dropdown"
+            role="listbox"
+            hidden
+          >
+            <li class="search-form__dropdown-item" role="option" id="option-1">
+              <button class="search-form__dropdown-btn" type="button">
+                City Name
+              </button>
+            </li>
+            <li class="search-form__dropdown-item" role="option" id="option-1">
+              <button class="search-form__dropdown-btn" type="button">
+                City Name
+              </button>
+            </li>
+            <li class="search-form__dropdown-item" role="option" id="option-1">
+              <button class="search-form__dropdown-btn" type="button">
+                City Name
+              </button>
+            </li>
+            <li class="search-form__dropdown-item" role="option" id="option-1">
+              <button class="search-form__dropdown-btn" type="button">
+                City Name
+              </button>
+            </li>
+          </ul>
         </div>
 
-        <div class="weather__temp-block">
-          <img class="weather__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-          <p class="weather__temp"><em>68&deg;</em></p>
+        <div class="search-form__action">
+          <button class="search-form__btn" type="submit">Search</button>
         </div>
-      </div>
+      </form>
 
-      <!-- HOURLY FORECAST -->
-      <div class="weather__hourly">
-        <div class="hourly__header">
-          <p class="hourly__title">Hourly forecast</p>
-          <button class="hourly__day-btn">Tuesday <img class="units-btn__icon-checvron" aria-hidden="true"
-              src="/src/assets/icons/icon-dropdown.svg" alt="">
-          </button>
-        </div>
-
-        <div class="hourly__list">
-          <!-- One item -->
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
+      <section class="weather">
+        <!-- CURRENT WEATHER -->
+        <div class="weather__current">
+          <div class="weather__location">
+            <p class="weather__city">Berlin, Germany</p>
+            <time class="weather__date" datetime="">Tuesday, Aug 5, 2025</time>
           </div>
 
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-
-          <div class="hourly__item">
-            <div class="hourly__time-block">
-              <img class="hourly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-              <p class="hourly__time">3 PM</p>
-            </div>
-            <p class="hourly__temp">68&deg;</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEATHER DETAILS -->
-      <div class="weather__details">
-        <div class="details_item">
-          <p class="details__label">Feels like</p>
-          <p class="details__value">64&deg;</p>
-        </div>
-
-        <div class="details_item">
-          <p class="details__label">Humidity</p>
-          <p class="details__value">46%</p>
-        </div>
-
-        <div class="details_item">
-          <p class="details__label">Wind</p>
-          <p class="details__value">9 mph</p>
-        </div>
-
-        <div class="details_item">
-          <p class="details__label">Precipitation</p>
-          <p class="details__value">0 in</p>
-        </div>
-      </div>
-
-      <!-- WEEKLY FORECAST -->
-      <div class="weather__weekly">
-        <p class="weekly__title">Daily forecast</p>
-        <div class="weekly__list">
-          <div class="weekly__item">
-            <p class="weekly__day">Tue</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-rain.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">68&deg;</p>
-              <p class="weekly__low">57&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Wed</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-partly-cloudy.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">70&deg;</p>
-              <p class="weekly__low">57&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Thu</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-partly-cloudy.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">70&deg;</p>
-              <p class="weekly__low">57&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Fri</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-sunny.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">77&deg;</p>
-              <p class="weekly__low">55&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Sat</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-partly-cloudy.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">70&deg;</p>
-              <p class="weekly__low">59&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Sun</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-partly-cloudy.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">77&deg;</p>
-              <p class="weekly__low">61&deg;</p>
-            </div>
-          </div>
-
-          <div class="weekly__item">
-            <p class="weekly__day">Mon</p>
-            <img class="weekly__icon" src="/src/assets/icons/icon-partly-cloudy.webp" alt="">
-            <div class="weekly_temps">
-              <p class="weekly__high">77&deg;</p>
-              <p class="weekly__low">61&deg;</p>
-            </div>
+          <div class="weather__temp-block">
+            <img
+              class="weather__icon"
+              src="/src/assets/icons/icon-sunny.webp"
+              alt=""
+            />
+            <p class="weather__temp"><em>68&deg;</em></p>
           </div>
         </div>
 
-      </div>
+        <!-- HOURLY FORECAST -->
+        <div class="weather__hourly">
+          <div class="hourly__header">
+            <p class="hourly__title">Hourly forecast</p>
+            <button class="hourly__day-btn">
+              Tuesday
+              <img
+                class="units-btn__icon-checvron"
+                aria-hidden="true"
+                src="/src/assets/icons/icon-dropdown.svg"
+                alt=""
+              />
+            </button>
+          </div>
 
-    </section>
+          <div class="hourly__list">
+            <!-- One item -->
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
-  </main>
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
 
+            <div class="hourly__item">
+              <div class="hourly__time-block">
+                <img
+                  class="hourly__icon"
+                  src="/src/assets/icons/icon-sunny.webp"
+                  alt=""
+                />
+                <p class="hourly__time">3 PM</p>
+              </div>
+              <p class="hourly__temp">68&deg;</p>
+            </div>
+          </div>
+        </div>
 
-  <script type="module" src="/src/main.js"></script>
-</body>
+        <!-- WEATHER DETAILS -->
+        <div class="weather__details">
+          <div class="details_item">
+            <p class="details__label">Feels like</p>
+            <p class="details__value">64&deg;</p>
+          </div>
 
+          <div class="details_item">
+            <p class="details__label">Humidity</p>
+            <p class="details__value">46%</p>
+          </div>
+
+          <div class="details_item">
+            <p class="details__label">Wind</p>
+            <p class="details__value">9 mph</p>
+          </div>
+
+          <div class="details_item">
+            <p class="details__label">Precipitation</p>
+            <p class="details__value">0 in</p>
+          </div>
+        </div>
+
+        <!-- WEEKLY FORECAST -->
+        <div class="weather__weekly">
+          <p class="weekly__title">Daily forecast</p>
+          <div class="weekly__list">
+            <div class="weekly__item">
+              <p class="weekly__day">Tue</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-rain.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">68&deg;</p>
+                <p class="weekly__low">57&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Wed</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-partly-cloudy.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">70&deg;</p>
+                <p class="weekly__low">57&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Thu</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-partly-cloudy.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">70&deg;</p>
+                <p class="weekly__low">57&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Fri</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-sunny.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">77&deg;</p>
+                <p class="weekly__low">55&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Sat</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-partly-cloudy.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">70&deg;</p>
+                <p class="weekly__low">59&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Sun</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-partly-cloudy.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">77&deg;</p>
+                <p class="weekly__low">61&deg;</p>
+              </div>
+            </div>
+
+            <div class="weekly__item">
+              <p class="weekly__day">Mon</p>
+              <img
+                class="weekly__icon"
+                src="/src/assets/icons/icon-partly-cloudy.webp"
+                alt=""
+              />
+              <div class="weekly_temps">
+                <p class="weekly__high">77&deg;</p>
+                <p class="weekly__low">61&deg;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
