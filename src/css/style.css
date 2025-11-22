@@ -127,7 +127,8 @@ form {
     border-radius: 8px;
     column-gap: 8px;
     padding-inline: 20px 10px;
-    border: 3px solid transparent;
+    border: 3px solid var(--neutral-800);
+    position: relative;
 }
 
 
@@ -174,6 +175,54 @@ form .search-form__btn:focus {
     border: 3px solid var(--neutral-900);
     outline: 2px solid var(--blue-500);
 }
+
+
+/* SEARCH DROPDOWN MENU */
+.search-form__dropdown-list {
+    position: absolute;
+    left: 0;
+    top: 62px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--neutral-800);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    border: 1px solid var(--neutral-600);
+    z-index: 1000;
+
+}
+
+.search-form__dropdown-list li {
+    list-style-type: none;
+}
+
+.search-form__dropdown-list button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    color: var(--neutral);
+    text-align: start;
+    border: 1.7px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s background ease-in;
+}
+
+.search-form__dropdown-list button:hover,
+.search-form__dropdown-list button:focus {
+    border-color: var(--neutral-600);
+    background-color: var(--neutral-700);
+}
+
+.search-form__dropdown-list[hidden] {
+    display: none;
+}
+
 
 
 /* WEATHER */
