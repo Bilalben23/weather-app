@@ -72,7 +72,7 @@ ul li {
     position: absolute;
     border-radius: 8px;
     background-color: var(--neutral-800);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -198,7 +198,6 @@ form {
     align-items: center;
     column-gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .search-form__field {
@@ -210,8 +209,6 @@ form {
     border: 3px solid var(--neutral-800);
     position: relative;
 }
-
-
 
 .search-form__field img {
     width: 20px;
@@ -270,9 +267,9 @@ form .search-form__btn:focus {
 .weather {
     margin-top: 32px;
     display: grid;
-    grid-template-rows: 1fr 0.5fr 0.5fr;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    grid-auto-rows: auto;
 }
 
 
@@ -336,7 +333,7 @@ form .search-form__btn:focus {
 }
 
 .hourly__header .hourly__day-btn {
-    padding: 9px 12px;
+    padding: 8px 12px;
     border-radius: 8px;
     background-color: var(--neutral-600);
     border: none;
@@ -363,7 +360,7 @@ form .search-form__btn:focus {
     background-color: var(--neutral-700);
     border-radius: 6px;
     align-items: center;
-    padding: 7px 10px;
+    padding: 5px 10px;
     border: 2px solid var(--neutral-600);
 }
 
@@ -441,7 +438,6 @@ form .search-form__btn:focus {
     font-size: 0.9rem;
 }
 
-
 .weekly__item .weekly__icon {
     width: 50px;
 }
@@ -453,4 +449,96 @@ form .search-form__btn:focus {
     justify-content: space-between;
     column-gap: 10px;
     color: var(--neutral-200);
+}
+
+
+/* RESPONSIVENESS */
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        padding-inline: 0;
+    }
+
+    .header__logo img {
+        max-width: 140px;
+    }
+
+
+    /* SEARCH FORM */
+    form {
+        row-gap: 8px;
+        flex-direction: column;
+    }
+
+    .search-form__field {
+        width: 100%;
+        padding-inline: 12px 5px;
+    }
+
+    form .search-form__btn,
+    form .search-form__action {
+        width: 100%;
+    }
+
+    .search-form__field input {
+        min-width: auto;
+    }
+
+    .weather__hourly {
+        order: 99;
+    }
+
+    /* CURRENT WEATHER */
+    .weather {
+        grid-template-columns: 1fr;
+    }
+
+    .weather__current {
+        padding: 30px 10px;
+        min-height: auto;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* WEATHER DETAILS */
+
+    .weather__details {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .details_item {
+        padding: 10px;
+        flex: 0 1 calc(50% - 0.4rem);
+    }
+
+
+    /* WEEKLY FORECAST */
+
+    .weekly__list {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+
+    }
+
+    .weekly__list .weekly__item {
+        width: auto;
+        flex: 0 1 calc(50% - 0.4rem);
+
+    }
+
+    .weekly__item .weekly__icon {
+        width: 40px;
+    }
+
+    /* HOURLY FORECAST */
+
+    .weather__hourly {
+        grid-column: span 2;
+    }
 }
