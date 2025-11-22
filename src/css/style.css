@@ -61,6 +61,51 @@ body {
     border: 0;
 }
 
+ul li {
+    list-style-type: none;
+}
+
+
+/* DROPDOWN GENERAL STYLES */
+
+.dropdown {
+    position: absolute;
+    border-radius: 8px;
+    background-color: var(--neutral-800);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    border: 1px solid var(--neutral-600);
+    z-index: 1000;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    color: var(--neutral);
+    text-align: start;
+    border: 1.7px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s background ease-in;
+}
+
+.dropdown .dropdown-btn:hover,
+.dropdown .dropdown-btn:focus {
+    border-color: var(--neutral-600);
+    background-color: var(--neutral-700);
+}
+
+.dropdown[hidden] {
+    display: none;
+}
+
+
 /* HEADER */
 header {
     display: flex;
@@ -179,50 +224,10 @@ form .search-form__btn:focus {
 
 /* SEARCH DROPDOWN MENU */
 .search-form__dropdown-list {
-    position: absolute;
     left: 0;
     top: 62px;
-    border-radius: 8px;
     width: 100%;
-    background-color: var(--neutral-800);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-    border: 1px solid var(--neutral-600);
-    z-index: 1000;
-
 }
-
-.search-form__dropdown-list li {
-    list-style-type: none;
-}
-
-.search-form__dropdown-list button {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: transparent;
-    color: var(--neutral);
-    text-align: start;
-    border: 1.7px solid transparent;
-    cursor: pointer;
-    user-select: none;
-    transition: 0.3s background ease-in;
-}
-
-.search-form__dropdown-list button:hover,
-.search-form__dropdown-list button:focus {
-    border-color: var(--neutral-600);
-    background-color: var(--neutral-700);
-}
-
-.search-form__dropdown-list[hidden] {
-    display: none;
-}
-
 
 
 /* WEATHER */
@@ -292,6 +297,7 @@ form .search-form__btn:focus {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+    position: relative;
 }
 
 .hourly__header .hourly__day-btn {
@@ -334,6 +340,15 @@ form .search-form__btn:focus {
 .hourly__time-block img {
     width: 43px;
 }
+
+
+/* Days Dropdown List */
+.hourly__day-dropdown {
+    right: 0;
+    top: 45px;
+    width: 160px;
+}
+
 
 /* WEATHER DETAILS */
 
