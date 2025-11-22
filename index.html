@@ -24,7 +24,14 @@
       </div>
 
       <div class="header__units">
-        <button type="button" class="units-btn">
+        <!-- Dropdown Toggle Button -->
+        <button
+          type="button"
+          class="units-btn"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="units-dropdown-list"
+        >
           <img
             class="units-btn__icon"
             src="/src/assets/icons/icon-units.svg"
@@ -36,8 +43,149 @@
             class="units-btn__icon-checvron"
             src="/src/assets/icons/icon-dropdown.svg"
             alt=""
+            aria-hidden="true"
           />
         </button>
+
+        <!-- Settings Dropdown List -->
+
+        <ul id="units-dropdown-list" class="dropdown unit-menu" role="listbox">
+          <!-- Switch Button -->
+          <li class="unit-menu__item">
+            <button type="button" class="dropdown-btn">
+              Switch to Imperial
+            </button>
+          </li>
+
+          <!-- Temperature Group -->
+          <li
+            role="group"
+            aria-label="Temperature Units"
+            class="unit-menu__group"
+          >
+            <p class="unit-menu__group-label">Temperature</p>
+
+            <ul>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="true"
+                >
+                  <span>Celsius(&deg;C)</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <span>Fahrenheit (°F)</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+            </ul>
+          </li>
+
+          <hr class="separator" aria-hidden="true" />
+
+          <!-- Wind Speed Group -->
+          <li
+            role="group"
+            aria-label="Wind Speed Units"
+            class="unit-menu__group"
+          >
+            <p class="unit-menu__group-label">Wind Speed</p>
+
+            <ul>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="true"
+                >
+                  <span>KM/h</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <span>mph</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+            </ul>
+          </li>
+
+          <hr class="separator" aria-hidden="true" />
+          <!-- Precipitation Group -->
+          <li
+            role="group"
+            aria-label="Precipitation Speed Units"
+            class="unit-menu__group"
+          >
+            <p class="unit-menu__group-label">Precipitation</p>
+
+            <ul>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="true"
+                >
+                  <span>Millimeters (mm)</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+              <li class="unit-menu__item">
+                <button
+                  type="button"
+                  class="dropdown-btn unit-menu__option"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <span>Inches (in)</span>
+                  <img
+                    src="/src/assets/icons/icon-checkmark.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </header>
 
@@ -70,6 +218,7 @@
             id="search-dropdown"
             class="search-form__dropdown"
             role="listbox"
+            hidden
           >
             <li class="search-form__dropdown-item" role="option" id="option-1">
               <button
@@ -157,6 +306,7 @@
               class="dropdown hourly__day-dropdown"
               role="listbox"
               aria-label="Select day of the week"
+              hidden
             >
               <li role="option" id="day-mon">
                 <button type="button" class="dropdown-btn hourly__day-option">
