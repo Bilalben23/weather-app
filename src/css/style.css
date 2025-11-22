@@ -294,7 +294,7 @@ form .search-form__btn:focus {
     margin-bottom: 12px;
 }
 
-.hourly__header button {
+.hourly__header .hourly__day-btn {
     padding: 9px 12px;
     border-radius: 8px;
     background-color: var(--neutral-600);
@@ -305,7 +305,7 @@ form .search-form__btn:focus {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.hourly__header button:hover {
+.hourly__header .hourly__day-btn:hover {
     background-color: var(--neutral-700);
 }
 

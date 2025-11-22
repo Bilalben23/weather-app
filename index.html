@@ -70,6 +70,7 @@
             id="search-dropdown"
             class="search-form__dropdown"
             role="listbox"
+            hidden
           >
             <li class="search-form__dropdown-item" role="option" id="option-1">
               <button class="search-form__dropdown-btn" type="button">
@@ -121,7 +122,15 @@
         <div class="weather__hourly">
           <div class="hourly__header">
             <p class="hourly__title">Hourly forecast</p>
-            <button class="hourly__day-btn">
+
+            <!-- Trigger Button for Dropdown -->
+            <button
+              id="day-dropdown-btn"
+              class="hourly__day-btn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="ay-dropdown-list"
+            >
               Tuesday
               <img
                 class="units-btn__icon-checvron"
@@ -130,6 +139,45 @@
                 alt=""
               />
             </button>
+
+            <!-- Dropdown List -->
+            <ul
+              id="day-dropdown-list"
+              class="hourly__day-drodown"
+              role="listbox"
+              aria-label="Select day of the week"
+              hidden
+            >
+              <li role="option" id="day-mon">
+                <button type="button" class="hourly__day-option">Monday</button>
+              </li>
+              <li role="option" id="day-tue">
+                <button type="button" class="hourly__day-option">
+                  Tuesday
+                </button>
+              </li>
+              <li role="option" id="day-wed">
+                <button type="button" class="hourly__day-option">
+                  Wednesday
+                </button>
+              </li>
+              <li role="option" id="day-thu">
+                <button type="button" class="hourly__day-option">
+                  Thursday
+                </button>
+              </li>
+              <li role="option" id="day-fri">
+                <button type="button" class="hourly__day-option">Friday</button>
+              </li>
+              <li role="option" id="day-sat">
+                <button type="button" class="hourly__day-option">
+                  Saturday
+                </button>
+              </li>
+              <li role="option" id="day-sun">
+                <button type="button" class="hourly__day-option">Sunday</button>
+              </li>
+            </ul>
           </div>
 
           <div class="hourly__list">
