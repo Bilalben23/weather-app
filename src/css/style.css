@@ -105,8 +105,13 @@ ul li {
     background-color: var(--neutral-700);
 }
 
-.dropdown[hidden] {
+
+.hide {
     display: none;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
 }
 
 
@@ -144,6 +149,7 @@ header {
 .header__units button img {
     width: 13px;
     height: 13px;
+    transition: transform 0.3s ease-in;
 }
 
 .header__units button:hover {

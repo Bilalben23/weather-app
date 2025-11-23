@@ -5,6 +5,7 @@
     <meta name="author" content="Bilal Ben Youssef" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Weather App</title>
     <link rel="stylesheet" href="./src/css/style.css" />
 
@@ -40,7 +41,7 @@
           />
           <span class="units-btn__text">Units</span>
           <img
-            class="units-btn__icon-checvron"
+            class="units-btn__icon-chevron"
             src="/src/assets/icons/icon-dropdown.svg"
             alt=""
             aria-hidden="true"
@@ -51,9 +52,8 @@
 
         <ul
           id="units-dropdown-list"
-          class="dropdown unit-menu"
+          class="dropdown unit-menu hide"
           role="listbox"
-          hidden
         >
           <!-- Switch Button -->
           <li class="unit-menu__item">
@@ -219,11 +219,10 @@
 
           <!-- Dropdown Menu -->
           <ul
-            class="dropdown search-form__dropdown-list"
+            class="dropdown search-form__dropdown-list hide"
             id="search-dropdown"
             class="search-form__dropdown"
             role="listbox"
-            hidden
           >
             <li class="search-form__dropdown-item" role="option" id="option-1">
               <button
@@ -298,7 +297,7 @@
             >
               Tuesday
               <img
-                class="units-btn__icon-checvron"
+                class="units-btn__icon-chevron"
                 aria-hidden="true"
                 src="/src/assets/icons/icon-dropdown.svg"
                 alt=""
@@ -308,10 +307,9 @@
             <!-- Week days Dropdown List -->
             <ul
               id="day-dropdown-list"
-              class="dropdown hourly__day-dropdown"
+              class="dropdown hourly__day-dropdown hide"
               role="listbox"
               aria-label="Select day of the week"
-              hidden
             >
               <li role="option" id="day-mon">
                 <button type="button" class="dropdown-btn hourly__day-option">
@@ -573,6 +571,6 @@
       </section>
     </main>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
