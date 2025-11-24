@@ -32,8 +32,6 @@ function showError(msg) {
 }
 
 
-
-
 // Load weather on form submit
 async function loadWeather(cityName) {
     showLoading(true);

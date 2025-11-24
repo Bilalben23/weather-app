@@ -106,13 +106,41 @@ ul li {
 }
 
 
-.hide {
-    display: none;
-}
-
 .rotate-icon {
     transform: rotate(180deg);
 }
+
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* SHIMMER EFFECT */
+.shimmer:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 60%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    animation: shimmer 1.8s infinite ease-in-out;
+
+}
+
+@keyframes shimmer {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
 
 
 /* HEADER */
@@ -282,18 +310,54 @@ form .search-form__btn:focus {
 
 /* CURRENT WEATHER */
 
-.weather__current {
-    grid-column: span 2;
-    background: url(/src/assets/images/bg-today-large.svg) no-repeat center center;
-    background-size: cover;
-    border-radius: 12px;
+.weather__current,
+.weather__current-loading {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    grid-column: span 2;
+    border-radius: 12px;
     padding-inline: 25px;
     min-height: 240px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+
+.weather__current {
+    background: url(/src/assets/images/bg-today-large.svg) no-repeat center center;
+    background-size: cover;
+    justify-content: space-between;
+}
+
+.weather__current-loading {
+    background-color: var(--neutral-800);
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.weather__current-loading img {
+    width: 30px;
+    animation: spin 1s linear infinite;
+    filter: brightness(0.8);
+}
+
+.weather__current-loading p {
+    color: var(--neutral-300);
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+
+    }
+}
+
+
 
 .weather__current .weather__city {
     font-weight: bold;
@@ -322,6 +386,7 @@ form .search-form__btn:focus {
 }
 
 
+
 /* HOURLY FORECAST */
 
 .weather__hourly {
@@ -329,6 +394,8 @@ form .search-form__btn:focus {
     background-color: var(--neutral-800);
     border-radius: 12px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .weather__hourly .hourly__header {
@@ -355,20 +422,30 @@ form .search-form__btn:focus {
 }
 
 
-.hourly__list {
+.hourly__list,
+.hourly__list-loading {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
+    flex-grow: 1;
 }
 
 .hourly__item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.hourly__item,
+.hourly__list-loading div {
     background-color: var(--neutral-700);
     border-radius: 6px;
-    align-items: center;
     padding: 5px 10px;
     border: 2px solid var(--neutral-600);
+}
+
+.hourly__list-loading div {
+    flex-grow: 1;
 }
 
 .hourly__time-block {
@@ -379,6 +456,7 @@ form .search-form__btn:focus {
 .hourly__time-block img {
     width: 43px;
 }
+
 
 
 /* Days Dropdown List */
@@ -424,19 +502,14 @@ form .search-form__btn:focus {
     grid-column: span 2;
 }
 
-.weekly__list {
+.weekly__list,
+.weekly__list-loading {
     display: flex;
     column-gap: 0.9rem;
     margin-top: 15px;
 }
 
 .weekly__list .weekly__item {
-    background-color: var(--neutral-800);
-    padding: 15px 10px;
-    border-radius: 12px;
-    border: 2px solid var(--neutral-600);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -444,6 +517,21 @@ form .search-form__btn:focus {
     align-items: center;
     font-size: 0.8rem;
 }
+
+.weekly__list .weekly__item,
+.weekly__list-loading div {
+    background-color: var(--neutral-800);
+    padding: 15px 10px;
+    border-radius: 12px;
+    border: 2px solid var(--neutral-600);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.weekly__list-loading div {
+    height: 147.46px;
+}
+
 
 .weekly__item .weekly__icon {
     width: 50px;
@@ -548,4 +636,8 @@ form .search-form__btn:focus {
     .weather__hourly {
         grid-column: span 2;
     }
+}
+
+.hide {
+    display: none;
 }
