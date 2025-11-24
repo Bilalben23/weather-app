@@ -412,7 +412,7 @@ form .search-form__btn:focus {
     color: var(--neutral-200);
 }
 
-.details_item .details__value {
+.details_item p:nth-child(2) {
     font-size: 1.5rem;
     font-weight: 300;
 }
@@ -442,7 +442,7 @@ form .search-form__btn:focus {
     justify-content: space-between;
     row-gap: 15px;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .weekly__item .weekly__icon {
