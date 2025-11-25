@@ -5,7 +5,6 @@ import renderWeeklyForecast from "./renderWeeklyForecast";
 
 function updateDom(data) {
   const { city, weather } = data;
-  console.log(weather);
 
   // ========================
   // 1. Basic DOM elements

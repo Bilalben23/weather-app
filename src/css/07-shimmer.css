@@ -1,0 +1,27 @@
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 60%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    animation: shimmer 1.8s infinite ease-in-out;
+
+}
+
+@keyframes shimmer {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}

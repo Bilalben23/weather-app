@@ -1,0 +1,91 @@
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        padding-inline: 0;
+    }
+
+    .header__logo img {
+        max-width: 140px;
+    }
+
+
+    /* SEARCH FORM */
+    form {
+        row-gap: 8px;
+        flex-direction: column;
+    }
+
+    .search-form__field {
+        width: 100%;
+        padding-inline: 12px 5px;
+    }
+
+    form .search-form__btn,
+    form .search-form__action {
+        width: 100%;
+    }
+
+    .search-form__field input {
+        min-width: auto;
+    }
+
+    .weather__hourly {
+        order: 99;
+    }
+
+    /* CURRENT WEATHER */
+    .weather {
+        grid-template-columns: 1fr;
+    }
+
+    .weather__current {
+        padding: 30px 10px;
+        min-height: auto;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* WEATHER DETAILS */
+
+    .weather__details {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .details_item {
+        padding: 10px;
+        flex: 0 1 calc(50% - 0.4rem);
+    }
+
+
+    /* WEEKLY FORECAST */
+
+    .weekly__list {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+
+    }
+
+    .weekly__list .weekly__item {
+        width: auto;
+        flex: 0 1 calc(50% - 0.4rem);
+
+    }
+
+    .weekly__item .weekly__icon {
+        width: 40px;
+    }
+
+    /* HOURLY FORECAST */
+
+    .weather__hourly {
+        grid-column: span 2;
+    }
+
+    .hourly__list-loading div {
+        height: 54px;
+    }
+}

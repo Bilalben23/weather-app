@@ -1,0 +1,248 @@
+/* WEATHER */
+
+.weather {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: auto;
+}
+
+/* ERROR MESSAGE */
+.search-error {
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* CURRENT WEATHER */
+
+.weather__current,
+.weather__current-loading {
+    display: flex;
+    align-items: center;
+    grid-column: span 2;
+    border-radius: 12px;
+    padding-inline: 25px;
+    min-height: 240px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.weather__current {
+    background: url(/src/assets/images/bg-today-large.svg) no-repeat center center;
+    background-size: cover;
+    justify-content: space-between;
+}
+
+.weather__current-loading {
+    background-color: var(--neutral-800);
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.weather__current-loading img {
+    width: 30px;
+    animation: spin 1s linear infinite;
+    filter: brightness(0.8);
+}
+
+.weather__current-loading p {
+    color: var(--neutral-300);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+
+    }
+}
+
+.weather__current .weather__city {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.weather__current time {
+    font-weight: 200;
+    color: var(--neutral-200);
+}
+
+.weather__temp-block {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.weather__temp-block img {
+    width: 90px;
+}
+
+.weather__temp-block p {
+    font-weight: 600;
+    font-size: 4rem;
+}
+
+
+
+/* HOURLY FORECAST */
+
+.weather__hourly {
+    grid-row: span 3;
+    background-color: var(--neutral-800);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weather__hourly .hourly__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.hourly__header .hourly__day-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--neutral-600);
+    border: none;
+    color: var(--neutral);
+    cursor: pointer;
+    transition: 0.3s background ease-in;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hourly__header .hourly__day-btn:hover {
+    background-color: var(--neutral-700);
+}
+
+.hourly__list,
+.hourly__list-loading {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    flex-grow: 1;
+}
+
+.hourly__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hourly__item,
+.hourly__list-loading div {
+    background-color: var(--neutral-700);
+    border-radius: 6px;
+    padding: 5px 10px;
+    border: 2px solid var(--neutral-600);
+}
+
+.hourly__list-loading div {
+    flex-grow: 1;
+}
+
+.hourly__time-block {
+    display: flex;
+    align-items: center;
+}
+
+.hourly__time-block img {
+    width: 43px;
+}
+
+
+/* Days Dropdown List */
+.hourly__day-dropdown {
+    right: 0;
+    top: 45px;
+    width: 160px;
+}
+
+
+/* WEATHER DETAILS */
+
+.weather__details {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    column-gap: 1.2rem;
+}
+
+.details_item {
+    background-color: var(--neutral-800);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--neutral-600);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.details_item .details__label {
+    margin-bottom: 15px;
+    color: var(--neutral-200);
+}
+
+.details_item p:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+
+/* WEEKLY FORECAST */
+
+.weather__weekly {
+    grid-column: span 2;
+}
+
+.weekly__list,
+.weekly__list-loading {
+    display: flex;
+    column-gap: 0.9rem;
+    margin-top: 15px;
+}
+
+.weekly__list .weekly__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 15px;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.weekly__list .weekly__item,
+.weekly__list-loading div {
+    background-color: var(--neutral-800);
+    padding: 15px 10px;
+    border-radius: 12px;
+    border: 2px solid var(--neutral-600);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.weekly__list-loading div {
+    height: 147.46px;
+}
+
+
+.weekly__item .weekly__icon {
+    width: 50px;
+}
+
+.weekly__item .weekly_temps {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+    color: var(--neutral-200);
+}
