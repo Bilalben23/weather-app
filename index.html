@@ -233,7 +233,17 @@
             aria-expanded="false"
             aria-controls="search-dropdown"
             aria-activedescendant=""
+            autocomplete="off"
           />
+
+          <template id="search-dropdown-item-template">
+            <li class="search-form__dropdown-item" role="option">
+              <button
+                class="dropdown-btn search-form__dropdown-btn"
+                type="button"
+              ></button>
+            </li>
+          </template>
 
           <!-- Dropdown Menu -->
           <ul
@@ -241,40 +251,7 @@
             id="search-dropdown"
             class="search-form__dropdown"
             role="listbox"
-          >
-            <li class="search-form__dropdown-item" role="option" id="option-1">
-              <button
-                class="dropdown-btn search-form__dropdown-btn"
-                type="button"
-              >
-                City Name
-              </button>
-            </li>
-            <li class="search-form__dropdown-item" role="option" id="option-1">
-              <button
-                class="dropdown-btn search-form__dropdown-btn"
-                type="button"
-              >
-                City Name
-              </button>
-            </li>
-            <li class="search-form__dropdown-item" role="option" id="option-1">
-              <button
-                class="dropdown-btn search-form__dropdown-btn"
-                type="button"
-              >
-                City Name
-              </button>
-            </li>
-            <li class="search-form__dropdown-item" role="option" id="option-1">
-              <button
-                class="dropdown-btn search-form__dropdown-btn"
-                type="button"
-              >
-                City Name
-              </button>
-            </li>
-          </ul>
+          ></ul>
         </div>
 
         <div class="search-form__action">

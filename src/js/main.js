@@ -4,12 +4,13 @@ import initDropdown from "./ui/initDropdown";
 import showLoading from "./ui/showLoading";
 import showCityNotFoundError from "./ui/showCityNotFoundError";
 import showGeneralError from "./ui/showGeneralError";
-
+import loadSavedCities from "./ui/loadSavedCities";
 
 initDropdown();
 
 const form = document.querySelector("form");
 const input = form.querySelector("#search_input");
+const dropdown = document.querySelector("#search-dropdown");
 
 
 let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
@@ -18,9 +19,15 @@ let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
     precipitation: "mm"
 }
 
-function saveSettings() {
-    localStorage.setItem("weatherSettings", JSON.stringify(settings));
-}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const lastCity = localStorage.getItem("lastCity");
+    const defaultCity = "Rabat";
+
+    const cityToLoad = lastCity || defaultCity;
+
+    loadWeather(cityToLoad);
+})
 
 
 // Load weather on form submit
@@ -53,12 +60,8 @@ form.addEventListener("submit", async (e) => {
     loadWeather(cityName);
 })
 
-
-window.addEventListener("DOMContentLoaded", () => {
-    const lastCity = localStorage.getItem("lastCity");
-    const defaultCity = "Rabat";
-
-    const cityToLoad = lastCity || defaultCity;
-
-    loadWeather(cityToLoad);
+input.addEventListener("focus", () => {
+    dropdown.classList.remove("hide");
+    input.setAttribute("aria-expanded", "true");
+    loadSavedCities(dropdown);
 })

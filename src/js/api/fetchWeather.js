@@ -1,5 +1,5 @@
 import getCoordinates from "./getCoordinates";
-
+import saveCityToLocalStorage from "../helpers/saveCityToLocalStorage";
 
 async function fetchWeather(cityName, settings) {
     const city = await getCoordinates(cityName);
@@ -21,6 +21,8 @@ async function fetchWeather(cityName, settings) {
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Failed to fetch weather data");
+
+    saveCityToLocalStorage(cityName);
 
     const data = await response.json();
     return { city: city.name, weather: data };

@@ -51,7 +51,7 @@ form .search-form__btn {
     transition: 0.3s background ease-in;
 }
 
-form .search-form__btn:hover {
+form .search-form__btn:is(:hover, :disabled) {
     background-color: var(--blue-700);
 }
 

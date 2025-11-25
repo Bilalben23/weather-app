@@ -72,4 +72,17 @@
 .search-form__dropdown-list {
     left: 0;
     top: 62px;
+    width: 100%;
+
+}
+
+.search-form__dropdown-list button {
+    text-transform: capitalize;
+}
+
+.search-form__dropdown-item.empty {
+    text-align: center;
+    padding: 8px;
+    color: var(--neutral-300);
+    cursor: default;
 }
