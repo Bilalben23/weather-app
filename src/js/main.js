@@ -2,7 +2,8 @@ import fetchWeather from "./api/fetchWeather";
 import updateDom from "./ui/domUpdater";
 import initDropdown from "./ui/initDropdown";
 import showLoading from "./ui/showLoading";
-import showError from "./ui/showError";
+import showCityNotFoundError from "./ui/showCityNotFoundError";
+import showGeneralError from "./ui/showGeneralError";
 
 
 initDropdown();
@@ -26,12 +27,17 @@ function saveSettings() {
 // Load weather on form submit
 async function loadWeather(cityName) {
     showLoading(true);
+    showCityNotFoundError(false);
 
     try {
         const weatherData = await fetchWeather(cityName, settings);
         updateDom(weatherData);
     } catch (err) {
-        showError(err.message)
+        if (err.code === "CITY_NOT_FOUND") {
+            showCityNotFoundError();
+        } else {
+            showGeneralError(err.message)
+        }
     } finally {
         showLoading(false);
     }
