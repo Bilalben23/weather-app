@@ -345,7 +345,6 @@ form .search-form__btn:focus {
     color: var(--neutral-300);
 }
 
-
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -356,8 +355,6 @@ form .search-form__btn:focus {
 
     }
 }
-
-
 
 .weather__current .weather__city {
     font-weight: bold;
@@ -636,7 +633,13 @@ form .search-form__btn:focus {
     .weather__hourly {
         grid-column: span 2;
     }
+
+    .hourly__list-loading div {
+        height: 54px;
+    }
 }
+
+
 
 .hide {
     display: none;

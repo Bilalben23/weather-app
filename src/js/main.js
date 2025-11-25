@@ -1,12 +1,14 @@
 import fetchWeather from "./api/fetchWeather";
 import updateDom from "./ui/domUpdater";
 import initDropdown from "./ui/initDropdown";
+import showLoading from "./ui/showLoading";
+import showError from "./ui/showError";
+
 
 initDropdown();
 
 const form = document.querySelector("form");
 const input = form.querySelector("#search_input");
-const searchBtn = form.querySelector(".search-form__btn");
 
 
 
@@ -18,17 +20,6 @@ let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
 
 function saveSettings() {
     localStorage.setItem("weatherSettings", JSON.stringify(settings));
-}
-
-
-function showLoading(isLoading) {
-    searchBtn.disabled = isLoading;
-    searchBtn.textContent = isLoading ? "Loading..." : "Search";
-}
-
-
-function showError(msg) {
-    alert(msg);
 }
 
 

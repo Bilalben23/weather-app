@@ -266,7 +266,7 @@
 
       <section class="weather">
         <!-- CURRENT WEATHER Loading -->
-        <div class="weather__current-loading shimmer">
+        <div class="weather__current-loading shimmer hide">
           <img
             src="/src/assets/icons/icon-loading.svg"
             alt=""
@@ -275,7 +275,7 @@
           <p>Loading...</p>
         </div>
         <!-- CURRENT WEATHER -->
-        <div class="weather__current hide">
+        <div class="weather__current">
           <div class="weather__location">
             <p class="weather__city">Berlin, Germany</p>
             <time class="weather__date" datetime="">Tuesday, Aug 5, 2025</time>
@@ -359,7 +359,7 @@
           </div>
 
           <!-- HOURLY LIST LOADING -->
-          <div class="hourly__list-loading">
+          <div class="hourly__list-loading hide">
             <div class="shimmer"></div>
             <div class="shimmer"></div>
             <div class="shimmer"></div>
@@ -370,7 +370,7 @@
             <div class="shimmer"></div>
           </div>
 
-          <div class="hourly__list hide">
+          <div class="hourly__list">
             <!-- One item -->
             <div class="hourly__item">
               <div class="hourly__time-block">
@@ -470,7 +470,6 @@
           </div>
         </div>
 
-        <!-- In Loading state we add shimmer to details_item and put - in the details__feels-like -->
         <!-- WEATHER DETAILS -->
         <div class="weather__details">
           <div class="details_item">
@@ -498,7 +497,7 @@
         <div class="weather__weekly">
           <p class="weekly__title">Daily forecast</p>
 
-          <div class="weekly__list-loading">
+          <div class="weekly__list-loading hide">
             <div class="shimmer"></div>
             <div class="shimmer"></div>
             <div class="shimmer"></div>
@@ -508,7 +507,7 @@
             <div class="shimmer"></div>
           </div>
 
-          <div class="weekly__list hide">
+          <div class="weekly__list">
             <div class="weekly__item">
               <p class="weekly__day">Mon</p>
               <img
