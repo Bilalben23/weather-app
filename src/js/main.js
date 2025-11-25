@@ -12,7 +12,6 @@ const form = document.querySelector("form");
 const input = form.querySelector("#search_input");
 
 
-
 let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
     temperature: "celsius",
     windSpeed: "kmh",
@@ -34,7 +33,7 @@ async function loadWeather(cityName) {
         const weatherData = await fetchWeather(cityName, settings);
         updateDom(weatherData);
     } catch (err) {
-        console.err(err);
+        console.error(err);
         if (err.code === "CITY_NOT_FOUND") {
             showCityNotFoundError();
         } else {
@@ -52,4 +51,14 @@ form.addEventListener("submit", async (e) => {
     if (!cityName) return;
 
     loadWeather(cityName);
+})
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const lastCity = localStorage.getItem("lastCity");
+    const defaultCity = "Rabat";
+
+    const cityToLoad = lastCity || defaultCity;
+
+    loadWeather(cityToLoad);
 })

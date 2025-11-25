@@ -301,8 +301,8 @@
         <!-- CURRENT WEATHER -->
         <div class="weather__current">
           <div class="weather__location">
-            <p class="weather__city">Berlin, Germany</p>
-            <time class="weather__date" datetime="">Tuesday, Aug 5, 2025</time>
+            <p class="weather__city"></p>
+            <time class="weather__date" datetime=""></time>
           </div>
 
           <div class="weather__temp-block">
@@ -311,7 +311,7 @@
               src="/src/assets/icons/sun.svg"
               alt="Sunny"
             />
-            <p class="weather__temp"><em>68&deg;C</em></p>
+            <p class="weather__temp"><em></em></p>
           </div>
         </div>
 
@@ -394,126 +394,39 @@
             <div class="shimmer"></div>
           </div>
 
-          <div class="hourly__list">
-            <!-- One item -->
+          <template id="hourly_item-template">
             <div class="hourly__item">
               <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
+                <img class="hourly__icon" src="" alt="" />
+                <p class="hourly__time"></p>
               </div>
-              <p class="hourly__temp">68&deg;</p>
+              <p class="hourly__temp"></p>
             </div>
+          </template>
 
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-
-            <div class="hourly__item">
-              <div class="hourly__time-block">
-                <img
-                  class="hourly__icon"
-                  src="/src/assets/icons/sun.svg"
-                  alt=""
-                />
-                <p class="hourly__time">3 PM</p>
-              </div>
-              <p class="hourly__temp">68&deg;</p>
-            </div>
-          </div>
+          <div class="hourly__list"></div>
         </div>
 
         <!-- WEATHER DETAILS -->
         <div class="weather__details">
           <div class="details_item">
             <p class="details__label">Feels like</p>
-            <p class="details__feels-like">35&deg;</p>
+            <p class="details__feels-like"></p>
           </div>
 
           <div class="details_item">
             <p class="details__label">Humidity</p>
-            <p class="details__humidity">46%</p>
+            <p class="details__humidity"></p>
           </div>
 
           <div class="details_item">
             <p class="details__label">Wind</p>
-            <p class="details__wind">9 km/h</p>
+            <p class="details__wind"></p>
           </div>
 
           <div class="details_item">
             <p class="details__label">Precipitation</p>
-            <p class="details__precipitation">0 mm</p>
+            <p class="details__precipitation"></p>
           </div>
         </div>
 
@@ -531,98 +444,18 @@
             <div class="shimmer"></div>
           </div>
 
-          <div class="weekly__list">
+          <template id="weekly_item-template">
             <div class="weekly__item">
-              <p class="weekly__day">Mon</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/rain.svg"
-                alt=""
-              />
+              <p class="weekly__day"></p>
+              <img class="weekly__icon" src="" alt="" />
               <div class="weekly_temps">
-                <p class="weekly__high">68&deg;</p>
-                <p class="weekly__low">57&deg;</p>
+                <p class="weekly__high"></p>
+                <p class="weekly__low"></p>
               </div>
             </div>
+          </template>
 
-            <div class="weekly__item">
-              <p class="weekly__day">Tue</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/partly-cloud.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">70&deg;</p>
-                <p class="weekly__low">57&deg;</p>
-              </div>
-            </div>
-
-            <div class="weekly__item">
-              <p class="weekly__day">Wed</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/partly-cloud.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">70&deg;</p>
-                <p class="weekly__low">57&deg;</p>
-              </div>
-            </div>
-
-            <div class="weekly__item">
-              <p class="weekly__day">thu</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/sun.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">77&deg;</p>
-                <p class="weekly__low">55&deg;</p>
-              </div>
-            </div>
-
-            <div class="weekly__item">
-              <p class="weekly__day">Fri</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/partly-cloud.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">70&deg;</p>
-                <p class="weekly__low">59&deg;</p>
-              </div>
-            </div>
-
-            <div class="weekly__item">
-              <p class="weekly__day">Sat</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/partly-cloud.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">77&deg;</p>
-                <p class="weekly__low">61&deg;</p>
-              </div>
-            </div>
-
-            <div class="weekly__item">
-              <p class="weekly__day">Sun</p>
-              <img
-                class="weekly__icon"
-                src="/src/assets/icons/partly-cloud.svg"
-                alt=""
-              />
-              <div class="weekly_temps">
-                <p class="weekly__high">77&deg;</p>
-                <p class="weekly__low">61&deg;</p>
-              </div>
-            </div>
-          </div>
+          <div class="weekly__list"></div>
         </div>
       </section>
     </main>
