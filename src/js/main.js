@@ -1,10 +1,8 @@
-import fetchWeather from "./api/fetchWeather";
-import updateDom from "./ui/domUpdater";
 import initDropdown from "./ui/initDropdown";
-import showLoading from "./ui/showLoading";
-import showCityNotFoundError from "./ui/showCityNotFoundError";
-import showGeneralError from "./ui/showGeneralError";
 import loadSavedCities from "./ui/loadSavedCities";
+import getSafeLocalArray from "./helpers/getSafeLocalArray";
+import loadWeather from "./helpers/loadWeather";
+import closeFormDropdown from "./helpers/closeFormDropdown";
 
 initDropdown();
 
@@ -13,45 +11,15 @@ const input = form.querySelector("#search_input");
 const dropdown = document.querySelector("#search-dropdown");
 
 
-let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
-    temperature: "celsius",
-    windSpeed: "kmh",
-    precipitation: "mm"
-}
-
-
 window.addEventListener("DOMContentLoaded", () => {
-    const lastCity = localStorage.getItem("lastCity");
-    const defaultCity = "Rabat";
-
-    const cityToLoad = lastCity || defaultCity;
+    const cities = getSafeLocalArray("cities");
+    const lastCity = cities[0] || null;
+    const cityToLoad = lastCity || "Rabat";
 
     loadWeather(cityToLoad);
 })
 
 
-// Load weather on form submit
-async function loadWeather(cityName) {
-    showLoading(true);
-    showCityNotFoundError(false);
-    showGeneralError(false);
-
-    try {
-        const weatherData = await fetchWeather(cityName, settings);
-        updateDom(weatherData);
-    } catch (err) {
-        console.error(err);
-        if (err.code === "CITY_NOT_FOUND") {
-            showCityNotFoundError();
-        } else {
-            showGeneralError()
-        }
-    } finally {
-        showLoading(false);
-    }
-}
-
-// Handle from submission
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const cityName = input.value.trim();
@@ -64,4 +32,25 @@ input.addEventListener("focus", () => {
     dropdown.classList.remove("hide");
     input.setAttribute("aria-expanded", "true");
     loadSavedCities(dropdown);
+})
+
+
+input.addEventListener("input", () => closeFormDropdown(dropdown, input));
+
+dropdown.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn || !dropdown.contains(btn)) return;
+
+    const cityName = btn.textContent;
+
+    input.value = cityName;
+    input.setAttribute("aria-activedescendant", btn.parentElement.id);
+    loadWeather(cityName)
+    closeFormDropdown(dropdown, input);
+})
+
+
+document.addEventListener("click", (e) => {
+    if (form.contains(e.target)) return;
+    closeFormDropdown(dropdown, input);
 })

@@ -16,6 +16,7 @@
     form {
         row-gap: 8px;
         flex-direction: column;
+        width: auto;
     }
 
     .search-form__field {
@@ -30,6 +31,7 @@
 
     .search-form__field input {
         min-width: auto;
+        width: 100%;
     }
 
     .weather__hourly {

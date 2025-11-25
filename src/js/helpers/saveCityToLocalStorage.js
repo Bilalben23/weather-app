@@ -1,5 +1,7 @@
+import getSafeLocalArray from './getSafeLocalArray';
+
 function saveCityToLocalStorage(cityName) {
-    let cities = JSON.parse(localStorage.getItem("cities")) || [];
+    let cities = getSafeLocalArray("cities", []);
 
     cities = cities.filter(c => c !== cityName.toLowerCase())
 

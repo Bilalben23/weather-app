@@ -5,6 +5,8 @@ form {
     align-items: center;
     column-gap: 10px;
     justify-content: center;
+    width: fit-content;
+    margin-inline: auto;
 }
 
 .search-form__field {
