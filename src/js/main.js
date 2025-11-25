@@ -28,15 +28,17 @@ function saveSettings() {
 async function loadWeather(cityName) {
     showLoading(true);
     showCityNotFoundError(false);
+    showGeneralError(false);
 
     try {
         const weatherData = await fetchWeather(cityName, settings);
         updateDom(weatherData);
     } catch (err) {
+        console.err(err);
         if (err.code === "CITY_NOT_FOUND") {
             showCityNotFoundError();
         } else {
-            showGeneralError(err.message)
+            showGeneralError()
         }
     } finally {
         showLoading(false);

@@ -6,6 +6,7 @@ async function getCoordinates(cityName) {
 
     const data = await response.json();
     if (!data.results || data.results.length === 0) {
+        console.error(`${cityName} City Not found!`);
         const error = new Error("City Not found");
         error.code = "CITY_NOT_FOUND";
         throw error;

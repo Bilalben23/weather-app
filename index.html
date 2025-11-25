@@ -194,6 +194,24 @@
       </div>
     </header>
 
+    <section class="general-error hide">
+      <img
+        src="/src/assets/icons/icon-error.svg"
+        alt=""
+        aria-hidden="true"
+        class="general-error__icon"
+      />
+      <h2 class="general-error__title">Something Went wrong</h2>
+      <p class="general-error__message">
+        We couldn't connect to server (API error). Please try again in a few
+        moments
+      </p>
+      <button type="button" class="general-error__retry">
+        <img src="/src/assets/icons/icon-retry.svg" alt="" aria-hidden="true" />
+        Retry
+      </button>
+    </section>
+
     <main class="container">
       <h1>How's the sky looking today?</h1>
 
@@ -264,7 +282,7 @@
         </div>
       </form>
 
-      <div class="error hide">
+      <div class="search-error hide">
         <p class="error__text">
           Oops! We couldn't find that city. Try entering a different name.
         </p>

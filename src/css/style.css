@@ -99,25 +99,22 @@ ul li {
     justify-content: space-between;
 }
 
-.dropdown .dropdown-btn:hover,
-.dropdown .dropdown-btn:focus {
+.dropdown .dropdown-btn:is(:hover, :focus) {
     border-color: var(--neutral-600);
     background-color: var(--neutral-700);
 }
-
 
 .rotate-icon {
     transform: rotate(180deg);
 }
 
 
+/* SHIMMER EFFECT */
 .shimmer {
     position: relative;
     overflow: hidden;
 }
 
-
-/* SHIMMER EFFECT */
 .shimmer:after {
     content: "";
     position: absolute;
@@ -160,7 +157,8 @@ header {
     position: relative;
 }
 
-.header__units .units-btn {
+.header__units .units-btn,
+.general-error button {
     padding: 10px 15px;
     border: none;
     color: var(--neutral);
@@ -175,13 +173,13 @@ header {
     transition: 0.3s background ease-in;
 }
 
-.header__units button img {
+:is(.header__units, .general-error) button img {
     width: 13px;
     height: 13px;
     transition: transform 0.3s ease-in;
 }
 
-.header__units button:hover {
+:is(.header__units, .general-error) button:hover {
     background-color: var(--neutral-700);
 }
 
@@ -213,6 +211,33 @@ header {
     margin-bottom: 4px;
 }
 
+
+/* GENERAL ERROR */
+
+.general-error {
+    margin-top: 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: center;
+}
+
+.general-error .general-error__icon {
+    width: 25px;
+}
+
+.general-error h2 {
+    font-size: 2rem;
+}
+
+.general-error p {
+    width: max(220px, 65%);
+    text-wrap: balance;
+    color: var(--neutral-200)
+}
+
+
 /* MAIN CONTENT */
 
 main {
@@ -223,6 +248,7 @@ h1 {
     text-align: center;
     font-size: 2.4rem;
 }
+
 
 
 /* SEARCH FORM */
@@ -308,7 +334,7 @@ form .search-form__btn:focus {
 }
 
 /* ERROR MESSAGE */
-.error {
+.search-error {
     margin-top: 32px;
     text-align: center;
     font-weight: 600;
@@ -339,7 +365,6 @@ form .search-form__btn:focus {
     gap: 20px;
     justify-content: center;
 }
-
 
 .weather__current-loading img {
     width: 30px;
@@ -424,7 +449,6 @@ form .search-form__btn:focus {
     background-color: var(--neutral-700);
 }
 
-
 .hourly__list,
 .hourly__list-loading {
     display: flex;
@@ -459,7 +483,6 @@ form .search-form__btn:focus {
 .hourly__time-block img {
     width: 43px;
 }
-
 
 
 /* Days Dropdown List */
@@ -644,7 +667,6 @@ form .search-form__btn:focus {
         height: 54px;
     }
 }
-
 
 
 .hide {
