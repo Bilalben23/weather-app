@@ -3,15 +3,21 @@ import loadSavedCities from "./ui/loadSavedCities";
 import getSafeLocalArray from "./helpers/getSafeLocalArray";
 import loadWeather from "./helpers/loadWeather";
 import closeFormDropdown from "./helpers/closeFormDropdown";
+import applyUserPreferencesToUI from "./ui/applyUserPreferencesToUI";
+import handleUnitSelection from "./helpers/handleUnitSelection";
+
 
 initDropdown();
 
 const form = document.querySelector("form");
 const input = form.querySelector("#search_input");
-const dropdown = document.querySelector("#search-dropdown");
+const searchDropdown = document.querySelector("#search-dropdown");
+const unitsDropdown = document.getElementById("units-dropdown-list");
 
 
 window.addEventListener("DOMContentLoaded", () => {
+    applyUserPreferencesToUI();
+
     const cities = getSafeLocalArray("cities");
     const lastCity = cities[0] || null;
     const cityToLoad = lastCity || "Rabat";
@@ -29,28 +35,35 @@ form.addEventListener("submit", async (e) => {
 })
 
 input.addEventListener("focus", () => {
-    dropdown.classList.remove("hide");
+    searchDropdown.classList.remove("hide");
     input.setAttribute("aria-expanded", "true");
-    loadSavedCities(dropdown);
+    loadSavedCities(searchDropdown);
 })
 
 
-input.addEventListener("input", () => closeFormDropdown(dropdown, input));
+input.addEventListener("input", () => closeFormDropdown(searchDropdown, input));
 
-dropdown.addEventListener("click", (e) => {
+searchDropdown.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
-    if (!btn || !dropdown.contains(btn)) return;
+    if (!btn || !searchDropdown.contains(btn)) return;
 
     const cityName = btn.textContent;
 
     input.value = cityName;
     input.setAttribute("aria-activedescendant", btn.parentElement.id);
     loadWeather(cityName)
-    closeFormDropdown(dropdown, input);
+    closeFormDropdown(searchDropdown, input);
 })
 
 
 document.addEventListener("click", (e) => {
     if (form.contains(e.target)) return;
-    closeFormDropdown(dropdown, input);
+    closeFormDropdown(searchDropdown, input);
+})
+
+
+unitsDropdown.addEventListener("click", (e) => {
+    const btn = e.target.closest(".unit-menu__option");
+    if (!btn) return;
+    handleUnitSelection(btn);
 })

@@ -2,6 +2,7 @@ import weatherCodeToDescription from "../helpers/weatherCodeToDescription";
 import weatherCodeToIcon from "../helpers/weatherCodeToIcon";
 import renderHourlyForecast from "./renderHourlyForecast";
 import renderWeeklyForecast from "./renderWeeklyForecast";
+import updateDetailsUnits from "./updateDetailsUnits";
 
 function updateDom(data) {
   const { city, weather } = data;
@@ -14,18 +15,14 @@ function updateDom(data) {
   const iconEl = document.querySelector(".weather__icon");
   const tempEl = document.querySelector(".weather__temp em")
 
-  const feelsEl = document.querySelector(".details__feels-like");
-  const humidityEl = document.querySelector(".details__humidity");
-  const windEl = document.querySelector(".details__wind");
-  const precipitationEl = document.querySelector(".details__precipitation");
-
   const current = weather.current_weather;
-  const currentWeatherUnits = weather.current_weather_units;
+  const currentUnits = weather.current_weather_units;
   const daily = weather.daily;
 
   const hourly = weather.hourly;
   const hourlyUnits = weather.hourly_units;
   const dailyUnits = weather.daily_units;
+
 
   // ========================
   // 1. City + Date
@@ -45,19 +42,10 @@ function updateDom(data) {
   // ========================
   iconEl.src = weatherCodeToIcon(current.weathercode);
   iconEl.alt = weatherCodeToDescription(current.weathercode);
-  tempEl.innerHTML = `${Math.round(current.temperature)}${currentWeatherUnits.temperature}`
+  tempEl.innerHTML = `${Math.round(current.temperature)}${currentUnits.temperature}`
 
 
-  // ========================
-  // 4. details
-  // ========================
-  const firstIndex = 0;
-
-  feelsEl.innerHTML = `${Math.round(hourly.apparent_temperature[firstIndex])}${hourlyUnits.apparent_temperature}`;
-  humidityEl.textContent = `${hourly.relativehumidity_2m[firstIndex]}${hourlyUnits.relativehumidity_2m}`;
-  windEl.textContent = `${Math.round(current.windspeed)} ${hourlyUnits.wind_speed_10m}`;
-  precipitationEl.textContent = `${hourly.precipitation[firstIndex]} ${hourlyUnits.precipitation}`;
-
+  updateDetailsUnits(current, currentUnits, hourly, hourlyUnits)
 
   renderHourlyForecast(hourly, hourlyUnits);
 

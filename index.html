@@ -68,7 +68,9 @@
             aria-label="Temperature Units"
             class="unit-menu__group"
           >
-            <p class="unit-menu__group-label">Temperature</p>
+            <p class="unit-menu__group-label" role="presentation">
+              Temperature
+            </p>
 
             <ul>
               <li class="unit-menu__item">
@@ -77,6 +79,7 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="true"
+                  data-unit="celsius"
                 >
                   <span>Celsius(&deg;C)</span>
                   <img
@@ -92,19 +95,21 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="false"
+                  data-unit="fahrenheit"
                 >
                   <span>Fahrenheit (°F)</span>
                   <img
                     src="/src/assets/icons/icon-checkmark.svg"
                     alt=""
                     aria-hidden="true"
+                    class="hide"
                   />
                 </button>
               </li>
             </ul>
           </li>
 
-          <hr class="separator" aria-hidden="true" />
+          <li role="separator" class="separator"></li>
 
           <!-- Wind Speed Group -->
           <li
@@ -112,7 +117,7 @@
             aria-label="Wind Speed Units"
             class="unit-menu__group"
           >
-            <p class="unit-menu__group-label">Wind Speed</p>
+            <p class="unit-menu__group-label" role="presentation">Wind Speed</p>
 
             <ul>
               <li class="unit-menu__item">
@@ -121,8 +126,9 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="true"
+                  data-unit="kmh"
                 >
-                  <span>KM/h</span>
+                  <span>km/h</span>
                   <img
                     src="/src/assets/icons/icon-checkmark.svg"
                     alt=""
@@ -136,26 +142,30 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="false"
+                  data-unit="mph"
                 >
                   <span>mph</span>
                   <img
                     src="/src/assets/icons/icon-checkmark.svg"
                     alt=""
                     aria-hidden="true"
+                    class="hide"
                   />
                 </button>
               </li>
             </ul>
           </li>
 
-          <hr class="separator" aria-hidden="true" />
+          <li role="separator" class="separator"></li>
           <!-- Precipitation Group -->
           <li
             role="group"
             aria-label="Precipitation Speed Units"
             class="unit-menu__group"
           >
-            <p class="unit-menu__group-label">Precipitation</p>
+            <p class="unit-menu__group-label" role="presentation">
+              Precipitation
+            </p>
 
             <ul>
               <li class="unit-menu__item">
@@ -164,6 +174,7 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="true"
+                  data-unit="mm"
                 >
                   <span>Millimeters (mm)</span>
                   <img
@@ -179,12 +190,14 @@
                   class="dropdown-btn unit-menu__option"
                   role="option"
                   aria-selected="false"
+                  data-unit="inch"
                 >
                   <span>Inches (in)</span>
                   <img
                     src="/src/assets/icons/icon-checkmark.svg"
                     alt=""
                     aria-hidden="true"
+                    class="hide"
                   />
                 </button>
               </li>
@@ -215,7 +228,7 @@
     <main class="container">
       <h1>How's the sky looking today?</h1>
 
-      <form action="#">
+      <form action="">
         <div class="search-form__field">
           <label for="search_input" class="sr-only">Search for a place</label>
           <img
@@ -249,8 +262,8 @@
           <ul
             class="dropdown search-form__dropdown-list hide"
             id="search-dropdown"
-            class="search-form__dropdown"
             role="listbox"
+            aria-label="Suggested cities"
           ></ul>
         </div>
 
@@ -303,7 +316,7 @@
               class="hourly__day-btn"
               aria-haspopup="listbox"
               aria-expanded="false"
-              aria-controls="ay-dropdown-list"
+              aria-controls="day-dropdown-list"
             >
               <span>Tuesday</span>
               <img

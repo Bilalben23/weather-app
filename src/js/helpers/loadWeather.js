@@ -3,14 +3,11 @@ import updateDom from "../ui/domUpdater";
 import showCityNotFoundError from "../ui/showCityNotFoundError";
 import showGeneralError from "../ui/showGeneralError";
 import showLoading from "../ui/showLoading";
+import loadUserPreferences from "./loadUserPreferences";
 
-let settings = JSON.parse(localStorage.getItem("weatherSettings")) || {
-    temperature: "celsius",
-    windSpeed: "kmh",
-    precipitation: "mm"
-}
 
 async function loadWeather(cityName) {
+    const settings = loadUserPreferences();
     showLoading(true);
     showCityNotFoundError(false);
     showGeneralError(false);
