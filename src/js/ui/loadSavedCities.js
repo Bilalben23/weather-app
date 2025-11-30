@@ -1,5 +1,5 @@
 function loadSavedCities(dropdown) {
-    const template = document.querySelector("#search-dropdown-item-template");
+    const template = document.getElementById("search-dropdown-item-template");
 
     const cities = JSON.parse(localStorage.getItem("cities")) || [];
 

@@ -1,18 +1,18 @@
-import initDropdown from "./ui/initDropdown";
+import initUnitsDropdown from "./ui/initUnitsDropdown";
+import initDayDropdown from "./ui/initDayDropdown";
 import loadSavedCities from "./ui/loadSavedCities";
 import getSafeLocalArray from "./helpers/getSafeLocalArray";
 import loadWeather from "./helpers/loadWeather";
 import closeFormDropdown from "./helpers/closeFormDropdown";
 import applyUserPreferencesToUI from "./ui/applyUserPreferencesToUI";
-import handleUnitSelection from "./helpers/handleUnitSelection";
 
 
-initDropdown();
+initUnitsDropdown();
+initDayDropdown();
 
 const form = document.querySelector("form");
 const input = form.querySelector("#search_input");
-const searchDropdown = document.querySelector("#search-dropdown");
-const unitsDropdown = document.getElementById("units-dropdown-list");
+const searchDropdown = document.getElementById("search-dropdown");
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -59,11 +59,4 @@ searchDropdown.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
     if (form.contains(e.target)) return;
     closeFormDropdown(searchDropdown, input);
-})
-
-
-unitsDropdown.addEventListener("click", (e) => {
-    const btn = e.target.closest(".unit-menu__option");
-    if (!btn) return;
-    handleUnitSelection(btn);
 })

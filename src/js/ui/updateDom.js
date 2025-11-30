@@ -3,6 +3,8 @@ import weatherCodeToIcon from "../helpers/weatherCodeToIcon";
 import renderHourlyForecast from "./renderHourlyForecast";
 import renderWeeklyForecast from "./renderWeeklyForecast";
 import updateDetailsUnits from "./updateDetailsUnits";
+import { setHourlyData } from "../helpers/hourlyState";
+import getDayOfWeek from "../helpers/getDayOfWeek";
 
 function updateDom(data) {
   const { city, weather } = data;
@@ -14,6 +16,7 @@ function updateDom(data) {
   const dateEl = document.querySelector(".weather__date");
   const iconEl = document.querySelector(".weather__icon");
   const tempEl = document.querySelector(".weather__temp em")
+  const dayBtn = document.getElementById("day-dropdown-btn");
 
   const current = weather.current_weather;
   const currentUnits = weather.current_weather_units;
@@ -47,7 +50,9 @@ function updateDom(data) {
 
   updateDetailsUnits(current, currentUnits, hourly, hourlyUnits)
 
+  dayBtn.querySelector("span").textContent = getDayOfWeek(hourly.time[0]);
   renderHourlyForecast(hourly, hourlyUnits);
+  setHourlyData(hourly, hourlyUnits);
 
   renderWeeklyForecast(daily, dailyUnits);
 }

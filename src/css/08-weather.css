@@ -124,6 +124,10 @@
     background-color: var(--neutral-700);
 }
 
+.hourly__header .hourly__day-btn img {
+    transition: transform 0.3s ease-in;
+}
+
 .hourly__list,
 .hourly__list-loading {
     display: flex;

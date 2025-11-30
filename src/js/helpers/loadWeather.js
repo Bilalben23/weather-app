@@ -1,5 +1,5 @@
 import fetchWeather from "../api/fetchWeather";
-import updateDom from "../ui/domUpdater";
+import updateDom from "../ui/updateDom";
 import showCityNotFoundError from "../ui/showCityNotFoundError";
 import showGeneralError from "../ui/showGeneralError";
 import showLoading from "../ui/showLoading";
