@@ -1,85 +1,141 @@
-# Weather App
+# 🌦️ Weather App
 
-  3-Day Candidate Access to Internal Resources
-Thank you for completing the initial questionnaire!
+A responsive, interactive web application that allows users to search for a city and view current weather conditions, including temperature, weather description, wind speed, precipitation, and icons representing the weather. Built for an internship project to demonstrate proficiency in HTML, CSS, JavaScript, and API integration.
 
+---
 
+## Table of Contents
 
-As part of the next stage in our hiring process for the React Front End Developer position, we’re giving you temporary access (3 days) to our internal training and process documentation.
+- [Project Overview](#project-overview)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Skills Practiced](#skills-practiced)
+- [Installation & Usage](#installation--usage)
+- [Project Structure](#project-structure)
+- [API Used](#api-used)
+- [Error Handling](#error-handling)
+- [Author](#author)
 
-This will allow you to:
+---
 
-- Understand the tools, systems, and workflows we use daily
+## Project Overview
 
-- Familiarize yourself with common customer scenarios
+**Objective:**
+Create a web-based weather application where users can enter a location to retrieve current weather conditions. The app displays temperature, weather description, icons, and additional details such as wind speed, precipitation, and “feels like” temperature.
 
-- Get a realistic view of the role before the interview stage
+**Project Difficulty:** Hard
 
-For security reasons, our internal documentation is hosted on our private network, which requires a secure connection via our corporate VPN client.
+**Additional Notes:**
+The app is fully responsive and user-friendly, ensuring accessibility with proper ARIA attributes.
 
+**Live Demo:** [View the Weather App Online](https://weather-nine-beryl.vercel.app)
 
+---
 
-VPN Access Instructions (Valid for 3 Days) 
+## Technologies
 
+- HTML for structure
+- CSS for styling and responsive layout
+- JavaScript for interactivity and API requests
+- [Vite](https://vite.dev/) for development and bundling
+- Open-Meteo API for weather data
 
+---
 
-Step 1 – Log in to OpenVPN Cloud Connexa
+## Features
 
-Go to: https://cloudconnexa.us/signin/cvpn/thecorvusgroup
-(This link redirects to the official OpenVPN Cloud Connexa download page.)
+- **City Search:** Text input to enter city or location
+- **Weather Display:** Current weather with temperature, description, and icon
+- **Hourly Forecast:** Hourly weather information with dynamic updates
+- **Daily Forecast:** 7-day weather forecast
+- **Unit Selector:** Switch between metric/imperial units for temperature, wind speed, and precipitation
+- **Error Handling:** Handles invalid input and API errors gracefully
+- **Local Storage:** Saves recently searched cities for quick access
+- **Responsive & Accessible:** Works on mobile, tablet, and desktop; ARIA attributes included
 
-🔑 Temporary Login Credentials:
+---
 
-Username: frntdev-trial-0x57
+## Skills Practiced
 
-Password: Bo5DoiQAaf3kPLFu
+- Structuring content and forms with **HTML**
+- Styling layouts, components, and dropdowns with **CSS** (including responsive design)
+- Handling user interactions and API requests with **JavaScript**
+- Asynchronous programming using `async/await`
+- Manipulating the DOM and templates for dynamic content
+- Integrating a public API and processing JSON data
+- Error handling and UX-friendly messages
 
-⚠️ You must log in before you can download the installation file.
+---
 
+## Installation & Usage
 
+1. **Clone the repository**
 
-Step 2 – Download the VPN Client
+```bash
+git clone https://github.com/Bilalben23/weather-app.git
+cd weather-app
+```
 
-This VPN client is available for Windows only.
+2. **Install dependencies**
 
-If you do not have access to a Windows computer, please contact us immediately so we can arrange an alternative way to provide the materials.
+```bash
+npm install
+```
 
-Save the installation file to your computer.
+3. **Start the development server**
 
+```bash
+npm run dev
+```
 
+4. Open your browser at `http://localhost:5173/`
+5. Enter a city name and click **Search** to view current weather and forecasts.
 
-Step 3 – Install the VPN Client
+---
 
-Open the downloaded file and follow the installation prompts
+## Project Structure
 
-Approve any security prompts from your operating system
+```
+public/
+    /assets      # Images & icons
+/src
+  /css         # CSS modules
+  /js
+    /helpers   # Utility functions (loadWeather, fetchWeather, localStorage helpers)
+    /ui        # UI modules (dropdowns, applying preferences, updating DOM)
+index.html
+```
 
-🔐 IMPORTANT — License Key Required During Installation:
+---
 
-License Key: ECBOB-7D72-5DIL-0WBW
+## API Used
 
-⚠️ Without entering this license key, the VPN will not function.
+- **Open-Meteo API** – Free and public weather API
+- Provides: Current weather, hourly forecast, daily forecast, temperature units, wind speed, precipitation
 
+API Documentation: [https://open-meteo.com/](https://open-meteo.com/)
 
+---
 
-Step 4 – Connect to the Corporate VPN
+## Error Handling
 
-Launch the VPN client. Click the connect button to connect to the corporate network.
+- **City Not Found:** Displays a clear error message if the user enters an invalid city
+- **API Errors:** Shows a general error section if the API request fails
+- **User Guidance:** Users are prompted to retry or enter a different city
 
+---
 
+## Author
 
-Step 5 – Access the Documentation
+**Bilal Ben Youssef** – Full-Stack Developer
+[GitHub](https://github.com/Bilalben23) | [Portfolio](https://bilalbenyoussef.vercel.app)
 
-Once connected, visit: https://desktop.tql.com/logon/LogonPoint
+---
 
-- and log in, using the credentials from the step 1.
+## License
 
-Your temporary credentials will work only when connected via the VPN.
+MIT © 2025 Bilal Ben Youssef
 
+## Project Screenshot
 
-
-
-📅 Note: Your temporary access will automatically expire 3 days from your first login.
-
-
-Once you’ve reviewed the materials, we’ll schedule a follow-up call to answer any questions and discuss your fit for the role.
+![Weather App Screenshot](public/assets/images/weather-app-screenshot.jpg)

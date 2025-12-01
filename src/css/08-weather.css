@@ -29,7 +29,7 @@
 }
 
 .weather__current {
-    background: url(/src/assets/images/bg-today-large.svg) no-repeat center center;
+    background: url(/assets/images/bg-today-large.svg) no-repeat center center;
     background-size: cover;
     justify-content: space-between;
 }

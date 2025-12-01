@@ -29,7 +29,7 @@ function weatherCodeToIcon(code) {
         99: "heavy-snow-thunder-sun.svg",
     };
 
-    return `/src/assets/icons/${icons[code] || "sun.svg"}`;
+    return `/assets/icons/${icons[code] || "sun.svg"}`;
 }
 
 export default weatherCodeToIcon;

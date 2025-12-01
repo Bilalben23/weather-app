@@ -27,5 +27,4 @@ async function loadWeather(cityName) {
     }
 }
 
-
 export default loadWeather;
